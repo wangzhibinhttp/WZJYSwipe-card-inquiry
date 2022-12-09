@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.company.project.mapper.WzMonecardMapper">
+
+	<!-- 连接的是Oracle -->
+    <resultMap type="com.company.project.entity.WzMonecardEntity" id="wzMonecardMap">
+        <result property="id" column="id"/>
+        <result property="cardNo" column="card_no"/>
+   <!--     <result property="startTime" column="riding_time"/>
+        <result property="endTime" column="riding_time"/>-->
+		<result property="ridingTime" column="riding_time"/>
+        <result property="busNo" column="bus_no"/>
+       <!-- <result property="busNoA" column="bus_no"/>
+        <result property="busNoB" column="bus_no"/>-->
+        <result property="cardName" column="card_name"/>
+        <result property="idNo" column="id_no"/>
+        <result property="tel" column="tel"/>
+    </resultMap>
+    <sql id="sql">
+        select * from zy_card_trade a, zy_card_sell b  WHERE  a.card_no = b.card_no  ORDER BY riding_time;
+    </sql>
+
+<!--    <select id="findallBybusNo"  resultType="com.company.project.entity.WzMonecardEntity">-->
+
+<!--    </select>-->
+    <!-- 连接的是Oracle -->
+    <select id="getWzMonecardByBusNo" resultType="com.company.project.entity.WzMonecardEntity" statementType="CALLABLE">
+        <![CDATA[
+            {CALL dbo.sp_Query_IC_card_trade_MoneForOracleConsumptionDataQuery}
+                
+        ]]>
+         /*execute dbo.sp_Query_IC_card_trade_MoneForOracleConsumptionDataQuery*/
+<!--        <bind name="busNoA" value= "'%'+ substr(busNo,0,2)+'%'"/>
+        <bind name="busNoB" value= "'%'+ substr(busNo,3,3)+'%'"/>
+        SELECT
+        a.card_no, riding_time , bus_no , card_name,  id_no , tel
+        FROM   zy_card_trade a, zy_card_sell b
+        WHERE  a.card_no = b.card_no
+        <if test="startTime != null AND startTime != '' and endTime != null AND endTime !='' ">
+            and  create_date_time <![CDATA[ >= ]]> #{startTime} and  create_date_time <![CDATA[ <= ]]> #{endTime}
+        </if>
+        <if test="busNoA !=null and busNoA!='' ">
+            <if test="busNoB !=null and busNoB!='' ">
+                and bus_no like concat(#{busNoA},'%',#{busNoB})
+            </if>
+        </if>
+        ORDER BY
+        riding_time;-->
+    </select>
+
+    <!--    <select id="getWzMonecardByBusNo" resultType="com.company.project.entity.WzMonecardEntity">-->
+<!--        SELECT-->
+<!--        a.card_no,riding_time , bus_no , card_name,  id_no , tel-->
+<!--        FROM   zy_card_trade a, zy_card_sell b-->
+<!--        WHERE  a.card_no = b.card_no-->
+<!--        <if test="startTime != null AND startTime != '' and endTime != null AND endTime !='' ">-->
+<!--            AND riding_time &gt;=CONCAT(#{startTime,jdbcType=TIMESTAMP},' 00:00:00')-->
+<!--        </if>-->
+<!--        <if test="endTime != null AND endTime !='' ">-->
+<!--            AND riding_time &lt;=CONCAT(#{endTime,jdbcType=TIMESTAMP},' 23:00:00')-->
+<!--        </if>-->
+
+<!--        create_date_time <![CDATA[ >= ]]> #{startTime} and  create_date_time <![CDATA[ <= ]]> #{endTime}-->
+
+<!--        AND to_char( riding_time, 'yyyymmdd hh24:mi:ss' )>= '20210801 13:20:00'-->
+<!--        AND to_char( riding_time, 'yyyymmdd hh24:mi:ss' )<= '20210801 17:40:00'-->
+<!--        AND bus_no LIKE '20%561'-->
+<!--        ORDER BY-->
+<!--        riding_time;-->
+
+<!--    </select>-->
+    <!-- <select id="findall" resultMap="wzMonecardMap">
+         SELECT
+             card_no,
+             riding_time,
+             bus_no ,
+             card_name,
+             id_no,
+             tel
+         FROM
+             zy_citizencard_trade
+         WHERE
+         <if test="startTime != null AND startTime != ''">
+             AND #{startTime , jdbcType=TIMESTAMP}
+         </if>
+         <if test="endTime != null AND endTime !='' ">
+             AND #{endTime , jdbcType=TIMESTAMP}
+         </if>
+             and riding_time = #{riding_time,jdbcType=TIMESTAMP}
+         <if test="bus_no != null">
+         &lt;!&ndash; 	AND bus_no LIKE '20%561'  &ndash;&gt;
+             and bus_no like concat(concat("%",#{bus_no}),"%")
+         </if>
+         ORDER BY
+             riding_time;
+     </select>-->
+   <!--  <sql id="querySql">
+        <where>
+            <if test="cardNo!=null and cardNo!=''">
+                and cardNo like concat(#{companyName,jdbcType=VARCHAR},'%')
+            </if>
+            <if test="busNo!=null and busNo!=''">
+                and busNo like concat(#{companyAddress,jdbcType=VARCHAR},'%')
+            </if>
+            <if test="cardName!=null and cardName!=''">
+                and cardName like concat(#{cardName,jdbcType=VARCHAR},'%')
+            </if>
+        </where>
+    </sql> -->
+    <!--查询所有-->
+    <!-- 查询数据 -->
+	<!-- 入参定义：在接口定义中使用@Param注解(单参/多参都可使用) -->
+	<!-- 语句末尾不能有分号：ORA-00911: invalid character -->
+	<!-- <select id="test_query" resultMap="Employee_resultMap">
+		select t.EMPNO, t.ENAME, t.JOB, t.MGR, t.HIREDATE, t.SAL, t.COMM, t.DEPTNO from scott.emp t where 1=1 
+		<if test="EMPNO != null">
+			and t.EMPNO &gt;= #{EMPNO}
+		</if>	
+		order by t.EMPNO
+	</select> -->
+		
+</mapper>
+

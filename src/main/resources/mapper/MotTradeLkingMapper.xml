@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.company.project.mapper.MotTradeLkingMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.company.project.entity.MotTradeLkingEntity" id="motTradeLkingMap">
+        <result property="id" column="id"/>
+        <result property="censeq" column="censeq"/>
+        <result property="centdate" column="centdate"/>
+        <result property="cardno" column="cardno"/>
+    </resultMap>
+	<sql id="Base_Column_List">
+        id, censeq, centdate, cardno
+    </sql>
+	<select id="selectAllTables" resultType="com.company.project.entity.MotTradeLkingEntity">
+		select top 1* into #mot_trade_lking from  openquery(all_pay_oracle,'select * from wenzhou.t_dtl_carddtl');
+	</select>
+	
+</mapper>
