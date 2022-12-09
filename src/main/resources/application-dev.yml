@@ -8,22 +8,22 @@ spring:
       datasource:
         master:
           username: sa
-          password: DATAINPUT4vmqq*132
+          password: 
           driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
           url: jdbc:sqlserver://
         sqlServer:
           username: sa
-          password: GJCENTER4saqq*242
+          password:
           driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
           url: jdbc:sqlserver://
         sqlAllpayOra:
           username: sa
-          password: GJCENTER4saqq*242
+          password: 
           driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
           url: jdbc:sqlserver://
         sqlForOracle:
           username: sa
-          password: GJCENTER4saqq*242
+          password: 
           driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
           url: jdbc:sqlserver://
 #        oracle:
