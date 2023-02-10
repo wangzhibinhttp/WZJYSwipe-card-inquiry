@@ -19,8 +19,8 @@ spring:
   # 文件大小限制
   servlet:
     multipart:
-      max-file-size: 10MB
-      max-request-size: 100MB
+      max-file-size: 15MB
+      max-request-size: 110MB
   # redis token信息
   redis:
     key:
