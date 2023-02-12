@@ -25,20 +25,20 @@ spring:
           username: sa
           password: 
           driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-          url: jdbc:sqlserver://
+          url: jdbc:sqlserver://192.168.
 #        oracle:
 #          username: BUS_IC_TEST
-#          password: pass_4bus_ic_201
+#          password: 
 #          driver-class-name: oracle.jdbc.driver.OracleDriver
 #          url: jdbc:oracle:
 #        master
 #          username: root
-#          password: 123456
+#          password: 
 #          driver-class-name: com.mysql.cj.jdbc.Driver
 #          url: jdbc:mysql://localhost:3306/company_project?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT%2b8
 #        sqlServer:
 #          username: sa
-#          password: 123456
+#          password: 
 #          driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 #          url: jdbc:sqlserver://
   redis:
