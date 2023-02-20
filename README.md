@@ -1,6 +1,6 @@
 # springboot-manager
   wzb ---这个是我想开发一个自己的项目12
-  our company develope software 
+  our company develope software query
 
 ## 介绍
 基于SpringBoot + Thymeleaf + Layui + Apache Shiro + Redis + Mybatis Plus 的后台管理系统  
