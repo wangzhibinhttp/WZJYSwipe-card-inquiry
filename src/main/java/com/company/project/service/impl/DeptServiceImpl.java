@@ -209,4 +209,28 @@ public class DeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impleme
         str.append(oriStr);
         return "D" + str.toString();
     }
+    /**
+     * 右补位，左对齐
+     *
+     * @param len    目标字符串长度
+     * @param alexi  补位字符
+     * @param oriStr 原字符串
+     * @return 目标字符串
+     * 以alexin 做为补位
+     */
+    public static String padRightOverCloo(int oriStr, int len, String alexi) {
+        StringBuilder str = new StringBuilder();
+        int strlen = String.valueOf(oriStr).length();
+        if (strlen < len) {
+            for (int i = 0; i < len - strlen; i++) {
+                str.append(alexi);
+            }
+        }else {
+          for(strlen < len){
+              str.append(oriStr);
+          }
+        }
+        str.append(oriStr);
+        return "D" + str.toString();
+    }
 }
