@@ -1,0 +1,43 @@
+package com.company.project.common.utils;
+
+/**
+ * Constant
+ *
+ * @author wenbin
+ * @version V1.0
+ * @date 2023年4月21日
+ */
+public class VerifySocket {
+
+  private void timeoutverify(){
+  // Set up a timer to check the heartbeat every 10 seconds
+  Timer timer = new Timer();
+  timer.schedule(new TimerTask() {
+      @Override
+      public void run() {
+          // Check if the data communication heartbeat is still active
+          if (isHeartbeatActive()) {
+              // Heartbeat is active, do nothing
+          } else {
+              // Heartbeat is not active, take appropriate action
+              handleHeartbeatFailure();
+          }
+      }
+  }, 0, 10000); // 10 seconds in milliseconds;
+ }
+
+// Method to check if the heartbeat is active
+private boolean isHeartbeatActive() {
+    // Check the status of the heartbeat and return true if it is active, false otherwise
+    // Code to check the heartbeat status goes here
+}
+
+// Method to handle heartbeat failure
+private void handleHeartbeatFailure() {
+    // Take appropriate action when the heartbeat fails
+    // Code to handle heartbeat failure goes here
+}
+
+
+
+}
