@@ -1,0 +1,53 @@
+package com.company.project.common.utils;
+
+/**
+ * Constant
+ *
+ * @author wenbin
+ * @version V1.0
+ * @date 2020年3月18日
+ */
+public class Verify {
+  public boolean validateInput(String input) {
+    // 判断输入是否为空
+    if (input == null || input.length() == 0) {
+        return false;
+    }
+    // 判断输入是否超过最大长度
+    int maxLength = 100;
+    if (input.length() > maxLength) {
+        return false;
+    }
+    // 判断输入是否包含非法字符
+    String regex = "^[a-zA-Z0-9]+$";
+    if (!input.matches(regex)) {
+        return false;
+    }
+    // 输入合法
+    return true;
+}
+// "继续" means "continue" in Chinese
+// Here, we can add a comment to indicate that the code below is the continuation of the previous code block
+// We can also add a blank line for readability
+
+  public boolean validateInputs(String input) {
+      // 判断输入是否为空
+      if (input == null || input.length() == 0) {
+          return false;
+      }
+      // 判断输入是否超过最大长度
+      int maxLength = 100;
+      if (input.length() > maxLength) {
+          return false;
+      }
+      // 判断输入是否包含非法字符
+      String regex = "^[a-zA-Z0-9]+$";
+      if (!input.matches(regex)) {
+          return false;
+      }
+      // 输入合法
+      return true;
+  }
+
+
+}
