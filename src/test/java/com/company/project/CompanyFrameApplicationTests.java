@@ -11,6 +11,7 @@ public class CompanyFrameApplicationTests {
 
     @Test
     public void contextLoads() {
+        case.add()=> cool;
     }
 
 }
